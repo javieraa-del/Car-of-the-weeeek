@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COWshop - Tienda Online</title>
+    <link rel="stylesheet" href="style (5).css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .seccion-productos {
+            margin-bottom: 3rem;
+        }
+
+        .seccion-productos h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .carrusel-contenedor {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .carrusel {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carrusel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carrusel::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .carrusel::-webkit-scrollbar-thumb {
+            background: #3a7ca5;
+            border-radius: 10px;
+        }
+
+        .producto {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            scroll-snap-align: start;
+            cursor: pointer;
+        }
+
+        .producto:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(58, 124, 165, 0.2);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e6f3f5, #f5e6f3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #3a7ca5;
+        }
+
+        .producto-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .producto-nombre {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .producto-precio {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a5f7a;
+            margin-bottom: 1rem;
+        }
+
+        .producto-color {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .boton-comprar {
+            background: linear-gradient(135deg, #3a7ca5 0%, #2c5aa0 100%);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .boton-comprar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(58, 124, 165, 0.3);
+        }
+
+        .controles {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-control {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #3a7ca5;
+            background: white;
+            color: #3a7ca5;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-control:hover {
+            background: #3a7ca5;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛍️ COWshop - Tienda Online</h1>
+        
+        <!-- Sección de Camisetas -->
+        <div class="seccion-productos">
+            <h2>👕 Camisetas</h2>
+            <div class="carrusel-contenedor">
+                <div class="carrusel" id="carruselCamisetas">
+                    <div class="producto">
+                        <div class="producto-imagen"><a href="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS-EYogU9oAUFiHA1HX0RwUFP0NbMhVMEO5UwhUqthfLHfC97vRNFMibqnRct377tO2Q9iwvBYQuS9iRkatLxb4lqYxB1oV-jDTRyMguB6j49jhgpnlPf9MXQ" target="_blank">👕</a></div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Camiseta Blanca Cars</div>
+                            <div class="producto-color">Disponible en múltiples colores</div>
+                            <div class="producto-precio">24.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">👕</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Camiseta DRIFT FOR LIFE Azul</div>
+                            <div class="producto-color">Azul marino oscuro</div>
+                            <div class="producto-precio">29.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">👕</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Camiseta Estampada SPAIN DRIFT SERIES Negra</div>
+                            <div class="producto-color">Negro con estampado</div>
+                            <div class="producto-precio">32.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">👕</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Camiseta Vintage PORCHE 930 TURBO Gris</div>
+                            <div class="producto-color">Gris</div>
+                            <div class="producto-precio">26.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">👕</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Camiseta FERRARI LOGO Roja</div>
+                            <div class="producto-color">Rojo corsa</div>
+                            <div class="producto-precio">28.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Sudaderas -->
+        <div class="seccion-productos">
+            <h2>🧥 Sudaderas</h2>
+            <div class="carrusel-contenedor">
+                <div class="carrusel" id="carruselSudaderas">
+                    <div class="producto">
+                        <div class="producto-imagen">🧥</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Sudadera Básica VOLRACE Gris</div>
+                            <div class="producto-color">Gris claro</div>
+                            <div class="producto-precio">44.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">🧥</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Sudadera SALLY Azul</div>
+                            <div class="producto-color">Azul con capucha</div>
+                            <div class="producto-precio">54.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">🧥</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Sudadera UN BEMETA ARREGLA TODO MENOS LA CARTERA Negra</div>
+                            <div class="producto-color">Negro con bolsillos y capucha</div>
+                            <div class="producto-precio">59.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">🧥</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Sudadera SF HAMILTON Roja</div>
+                            <div class="producto-color">Rojo corsa</div>
+                            <div class="producto-precio">49.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-imagen">🧥</div>
+                        <div class="producto-info">
+                            <div class="producto-nombre">Sudadera Vintage Beige</div>
+                            <div class="producto-color">Beige vintage</div>
+                            <div class="producto-precio">52.99€</div>
+                            <button class="boton-comprar">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scroll(elementId, distance) {
+            const element = document.getElementById(elementId);
+            element.scrollBy({
+                left: distance,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+body {
+    text-decoration: none;
+    background: #C4FAF8;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}  
+
+.letra {
+    color: black;
+    text-align: center;
+}
+
+/* Contenedor de coches */
+.coches-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Tarjeta individual de coche */
+.coche-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.coche-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.coche-card h3 {
+    color: #333;
+    margin-top: 0;
+}
+
+.coche-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.imagen-principal {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0e0e0;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones del carrusel */
+.btn-anterior,
+.btn-siguiente {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.btn-anterior:hover,
+.btn-siguiente:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.btn-anterior {
+    left: 5px;
+}
+
+.btn-siguiente {
+    right: 5px;
+}
+
+/* Indicadores (puntos) */
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #bbb;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.punto.activo {
+    background: #333;
+}
+
+.punto:hover {
+    background: #666;
+}
+
+/* Sección de Comentarios */
+.comentarios-seccion {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios-seccion h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
+}
+
+/* Formulario de comentario */
+.formulario-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#nombre-input,
+#texto-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#nombre-input:focus,
+#texto-input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+#nombre-input {
+    height: 40px;
+}
+
+#texto-input {
+    height: 100px;
+    resize: vertical;
+}
+
+.formulario-comentario button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.formulario-comentario button:hover {
+    background: #0056b3;
+}
+
+.formulario-comentario button:active {
+    transform: scale(0.98);
+}
+
+/* Lista de comentarios */
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sin-comentarios {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Item de comentario */
+.comentario-item {
+    background: #f9f9f9;
+    border-left: 4px solid #007BFF;
+    padding: 15px;
+    border-radius: 4px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comentario-nombre {
+    color: #333;
+    font-size: 15px;
+}
+
+.comentario-fecha {
+    color: #999;
+    font-size: 12px;
+}
+
+.comentario-texto {
+    color: #555;
+    line-height: 1.5;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.btn-eliminar {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: #c82333;
+}
+
+.btn-eliminar:active {
+    transform: scale(0.95);
+}

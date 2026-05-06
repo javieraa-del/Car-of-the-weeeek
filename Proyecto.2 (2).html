@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link rel="stylesheet" href="style (5).css">
+<head>
+<meta charset="UFT=8">
+<title>Car of the week</title>
+</head>
+<body>
+<h1 class="letra">CAR OF THE WEEK</h1>
+<p>En esta pagina web se iran añadiendo semanalmente el coche de la semana cada martes.
+    <ul>
+        <li>Vota <a href="Vota coche.html">aqui</a> para que salga el coche que tu quieras.</li> 
+        <li><a href="COWshop.html">Aquí</a> para entrar en nuestra tienda.</li>
+    </ul>
+</p><br>
+<div class="coches-container">
+    <!-- Coche 1 -->
+    <div class="coche-card">
+        <h2>COCHE DE ESTA SEMANA</h2>
+        <h3>Nissan Primera GT</h3>
+        <div class="carrusel">
+            <div class="imagen-principal">
+                <img id="imagen-0" src="" alt="Nissan Primera GT">
+            </div>
+            <button class="btn-anterior" onclick="cambiarImagen(0, -1)">❮</button>
+            <button class="btn-siguiente" onclick="cambiarImagen(0, 1)">❯</button>
+            <div class="indicadores" id="indicadores-0"></div>
+        </div>
+        <p>Motor: 2.0L 4 cilindros en linea 16v Naturalmente aspirado de 343CV</p>
+        <p>conocido como el eterno elvidado de la epoca dorada del DTM, marcando istoria como primer equipo privado de la historia en ganar una carrera</p>
+    </div>
+
+<!-- Sección de Coches con Carruseles -->
+<div class="coches-container">
+    <!-- Coche 1 -->
+    <div class="coche-card">
+        <h3>BMW M3 E46</h3>
+        <h5>Coche semana 18 de 2026</h5>
+        <div class="carrusel">
+            <div class="imagen-principal">
+                <img id="imagen-1" src="" alt="BMW M3 E46">
+            </div>
+            <button class="btn-anterior" onclick="cambiarImagen(1, -1)">❮</button>
+            <button class="btn-siguiente" onclick="cambiarImagen(1, 1)">❯</button>
+            <div class="indicadores" id="indicadores-1"></div>
+        </div>
+        <p>Motor: 3.2L Naturalmente aspirado de 343CV</p>
+        <p>Uno de los coches deportivos más icónicos del siglo XXI</p>
+    </div>
+
+    <!-- Coche 2 -->
+    <div class="coche-card">
+        <h3>Chevrolet Corvette C6</h3>
+         <h5>Coche semana 17 de 2026</h5>
+        <div class="carrusel">
+            <div class="imagen-principal">
+                <img id="imagen-2" src="" alt="Chevrolet Corvette C6">
+            </div>
+            <button class="btn-anterior" onclick="cambiarImagen(2, -1)">❮</button>
+            <button class="btn-siguiente" onclick="cambiarImagen(2, 1)">❯</button>
+            <div class="indicadores" id="indicadores-2"></div>
+        </div>
+        <p>Motor: LS2 V8 de 6.0L de 400CV</p>
+        <p>El superdeportivo americano por excelencia</p>
+    </div>
+
+    <!-- Coche 3 -->
+    <div class="coche-card">
+        <h3>Porsche 911 992.5 Carrera</h3>
+        <h5>Coche semana 16 de 2026</h5>
+        <div class="carrusel">
+            <div class="imagen-principal">
+                <img id="imagen-3" src="" alt="Porsche 911 992.5 Carrera">
+            </div>
+            <button class="btn-anterior" onclick="cambiarImagen(3, -1)">❮</button>
+            <button class="btn-siguiente" onclick="cambiarImagen(3, 1)">❯</button>
+            <div class="indicadores" id="indicadores-3"></div>
+        </div>
+        <p>Motor: Bóxer 3.4L Naturalmente aspirado de 280CV</p>
+        <p>La leyenda alemana de la velocidad y precisión</p>
+    </div>
+</div>
+
+<script>
+const imagenesCoche = {
+    0: ['https://espirituracer.com/archivos/2020/01/nissan-primera-gt-btcc.jpg','https://espirituracer.com/archivos/2022/07/nissan-primera-superturismo-2.webp','https://imagenes.autobild.es/files/image_640_auto/uploads/imagenes/2025/03/17/68d4f019572fb.jpeg'],
+    1: ['https://cdn.motor1.com/images/mgl/xWQQp/s1/bmw-m3-e46.webp','https://hips.hearstapps.com/hmg-prod/images/2006-bmw-m3-coupe-bat-103-6759f46f86673.jpg','https://imagenes.topgear.es/files/image_640_auto/uploads/imagenes/2023/06/26/68ca1ad61bd41.jpeg'],
+    2: ['https://st2.depositphotos.com/2218430/7176/i/450/depositphotos_71763751-stock-photo-chevrolet-corvette-c6.jpg','https://www.maxtuningshop.com/wp-content/uploads/2023/10/eng_pm_Side-Skirts-Diffusers-Chevrolet-Corvette-C6-19205_4.jpg','https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikaGJbAO3iLBL8mptMP_aUFfPsGIIyTig4eeaZqZ1wRYBo1U0I30OWCBxHLkUOlUZYXZnNGfkVWoEbKmgsN0arEte7ppP6u_4Nm3pH73YHCe2upV1_tzUtf2jQOa4It8DSE5eYM2tE3Ow/s1600/G-trasera-carretera-Corvette-Z06.jpg'],
+    3: ['https://i.blogs.es/0f27b2/porsche_911_992_contacto_16/1366_2000.jpg','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp4URcijdmJX3bqaYf_JHfX5_RYEpGKl0bsg&s','https://cdn.prod.website-files.com/5f366822b2ae3f218cd8428d/666957131138989d2ca6d8dd_992-6.webp']
+};
+
+const indiceActual = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0
+};
+
+function cambiarImagen(coche, direccion) {
+    const imagenes = imagenesCoche[coche];
+    if (imagenes.length === 0) {
+        alert('Por favor, agrega URLs de imágenes al array imagenesCoche[' + coche + ']');
+        return;
+    }
+    
+    indiceActual[coche] += direccion;
+    
+
+    if (indiceActual[coche] >= imagenes.length) {
+        indiceActual[coche] = 0;
+    } else if (indiceActual[coche] < 0) {
+        indiceActual[coche] = imagenes.length - 1;
+    }
+    
+    actualizarCarrusel(coche);
+}
+
+function actualizarCarrusel(coche) {
+    const imagenes = imagenesCoche[coche];
+    document.getElementById('imagen-' + coche).src = imagenes[indiceActual[coche]];
+    actualizarIndicadores(coche);
+}
+
+
+function actualizarIndicadores(coche) {
+    const contenedor = document.getElementById('indicadores-' + coche);
+    contenedor.innerHTML = '';
+    
+    for (let i = 0; i < imagenesCoche[coche].length; i++) {
+        const punto = document.createElement('span');
+        punto.className = 'punto' + (i === indiceActual[coche] ? ' activo' : '');
+        punto.onclick = function() {
+            indiceActual[coche] = i;
+            actualizarCarrusel(coche);
+        };
+        contenedor.appendChild(punto);
+    }
+}
+
+window.addEventListener('load', function() {
+    for (let i = 0; i <= 3; i++) {
+        actualizarIndicadores(i);
+    }
+});
+</script>
+
+<!-- Sección de Comentarios -->
+<div class="comentarios-seccion">
+    <h2>Comentarios</h2>
+    
+    <!-- Formulario de nuevo comentario -->
+    <div class="formulario-comentario">
+        <input type="text" id="nombre-input" placeholder="Tu nombre" maxlength="50">
+        <textarea id="texto-input" placeholder="Escribe tu comentario aquí..." maxlength="500"></textarea>
+        <button onclick="agregarComentario()">Publicar Comentario</button>
+    </div>
+    
+    <!-- Lista de comentarios -->
+    <div class="lista-comentarios" id="lista-comentarios">
+        <p class="sin-comentarios">No hay comentarios aún. ¡Sé el primero en comentar!</p>
+    </div>
+</div>
+
+<script>
+// Sistema de comentarios
+const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+
+// Función para agregar comentario
+function agregarComentario() {
+    const nombre = document.getElementById('nombre-input').value.trim();
+    const texto = document.getElementById('texto-input').value.trim();
+    
+    if (!nombre) {
+        alert('Por favor, ingresa tu nombre');
+        return;
+    }
+    
+    if (!texto) {
+        alert('Por favor, escribe un comentario');
+        return;
+    }
+    
+    // Crear objeto de comentario
+    const comentario = {
+        id: Date.now(),
+        nombre: nombre,
+        texto: texto,
+        fecha: new Date().toLocaleString('es-ES')
+    };
+    
+    // Agregar al array
+    comentarios.unshift(comentario);
+    
+    // Guardar en localStorage
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+    
+    // Limpiar formulario
+    document.getElementById('nombre-input').value = '';
+    document.getElementById('texto-input').value = '';
+    
+    // Actualizar vista
+    mostrarComentarios();
+}
+
+// Función para eliminar comentario
+function eliminarComentario(id) {
+    const index = comentarios.findIndex(c => c.id === id);
+    if (index > -1) {
+        comentarios.splice(index, 1);
+        localStorage.setItem('comentarios', JSON.stringify(comentarios));
+        mostrarComentarios();
+    }
+}
+
+// Función para mostrar comentarios
+function mostrarComentarios() {
+    const contenedor = document.getElementById('lista-comentarios');
+    
+    if (comentarios.length === 0) {
+        contenedor.innerHTML = '<p class="sin-comentarios">No hay comentarios aún. ¡Sé el primero en comentar!</p>';
+        return;
+    }
+    
+    contenedor.innerHTML = comentarios.map(comentario => `
+        <div class="comentario-item">
+            <div class="comentario-header">
+                <strong class="comentario-nombre">${escapeHtml(comentario.nombre)}</strong>
+                <span class="comentario-fecha">${comentario.fecha}</span>
+            </div>
+            <div class="comentario-texto">${escapeHtml(comentario.texto)}</div>
+            <button class="btn-eliminar" onclick="eliminarComentario(${comentario.id})">Eliminar</button>
+        </div>
+    `).join('');
+}
+
+// Función para escapar HTML y evitar inyecciones
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Cargar comentarios al iniciar
+window.addEventListener('load', function() {
+    mostrarComentarios();
+});
+
+// Permitir enviar comentario con Enter (Ctrl+Enter)
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById('texto-input');
+    if (textarea) {
+        textarea.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                agregarComentario();
+            }
+        });
+    }
+});
+</script>
+</body>
